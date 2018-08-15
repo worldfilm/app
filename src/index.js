@@ -4,10 +4,9 @@ import React, {
 } from 'react';
 export default class GameApp extends Component {
   hiddenLoaingView() {
-    this.setState({
-    })
+    this.setState({})
   }
   render() {
-    return ( <div  className = "container" ></div>);
-  };
-}
+    return ( < div className = "container" > < /div>);
+    };
+  }

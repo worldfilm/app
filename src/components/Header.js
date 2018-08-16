@@ -2,33 +2,31 @@ import React, {Component,PropTypes} from 'react';
 import {Link } from 'react-router';
 import './scss/Header.scss';
 import Navbar from '../components/Navbar.js'
+const LIST_ITEMS = [
+  {
+    name:'isShowHome',
+    title: '首页',
+    className:"fas fa-home"
+  },
+  {
+    name:'isShowHot',
+    title: '热门',
+    className:"fas fa-video"
+  },
+  {
+    name:'isShowVideoList',
+    title: '标签',
+    className:"fas fa-tags"
+  },
+  {
+    name:'isShowUser',
+    title: '用户',
+    className:"far fa-user"
+  },
+]
 export default class Header extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-        isShowHome:true,
-        isShowHot:false,
-        isShowVideoList:false,
-        isShowUser:false,
-    }
-  }
-  handClickf(idx){
-    console.log(idx+'/////////////')
-    var i=0;
-    if(idx==0){
-      this.setState({isShowHome: true})
-    }
-    if(idx==1){
-      this.setState({isShowHot: true})
-    }
-    if(idx==2){
-      this.setState({isShowVideoList: true})
-    }
-    if(idx==3){
-      this.setState({isShowUser: true})
-    }
-  }
   render() {
+    const { choose=()=>{}  } = this.props;
     return (<div className = "header">
                <div className = "container">
                   <div  className = "top">
@@ -37,7 +35,15 @@ export default class Header extends Component {
                      <button><i className ='fas fa-search'></i></button>
                      <img src='' />
                   </div>
-                  <Navbar choose={(idx)=>this.handClickf(idx)}/>
+                  <div className = "navbar">
+                     <ul>
+                     {
+                       LIST_ITEMS.map((list, idx) => (
+                         <li key={idx} onClick={()=>choose(idx)}><i className ={list.className} ></i><span>{list.title}</span></li>
+                       ))
+                     }
+                     </ul>
+                 </div>
                </div>
             </div>);
     };

@@ -1,28 +1,7 @@
 import React, {Component,PropTypes} from 'react';
 import {Link } from 'react-router';
 import './scss/Navbar.scss';
-const LIST_ITEMS = [
-  {
-    name:'Home',
-    title: '首页',
-    className:"fas fa-home"
-  },
-  {
-    name:'Hot',
-    title: '热门',
-    className:"fas fa-video"
-  },
-  {
-    name:'VideoList',
-    title: '标签',
-    className:"fas fa-tags"
-  },
-  {
-    name:'User',
-    title: '用户',
-    className:"far fa-user"
-  },
-]
+
 export default class Navbar extends Component {
   constructor(props) {
     super(props)

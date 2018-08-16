@@ -1,0 +1,43 @@
+.header {
+  width: 100%;
+  position: fixed;
+  background-color: #222;
+  transition: all 0.7s ease;
+  border-bottom: 1px solid #4e4e4e;
+
+  .container {
+    .top {
+      height: 1.5rem;
+
+      img {
+        height: 1rem;
+        display: inline-block;
+        padding: 0.2rem 0.2rem 0.2rem 0.4rem;
+        float: left;
+      }
+
+      i {
+        background: none;
+        color: #fff;
+        font-size: 0.7rem;
+      }
+
+      button {
+        background: none;
+        border: none;
+        float: left;
+        height: 1rem;
+        margin: 0.2rem;
+      }
+
+      input {
+        margin: 0.2rem;
+        line-height: 1.5rem;
+        height: 1rem;
+        float: left;
+        background: none;
+        border: none;
+      }
+    }
+  }
+}

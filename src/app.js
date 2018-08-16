@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import ReactDOM from 'react-dom';
-import GameApp from './index.js'
+import Body from './page/Body.js'
 ReactDOM.render((
-  <GameApp/>
+  <Body/>
 ), document.getElementById('Main'));

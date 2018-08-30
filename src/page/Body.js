@@ -6,6 +6,7 @@ import Home from '../page/Home.js'
 import Hot from '../page/Hot.js'
 import User from '../page/User.js'
 import VideoList from '../page/VideoList.js'
+import Logoin from '../page/Logoin.js'
 import './scss/Body.scss';
 export default class Body extends Component {
   constructor(props) {
@@ -14,7 +15,8 @@ export default class Body extends Component {
       isShowHome: true,
       isShowHot: false,
       isShowVideoList: false,
-      isShowUser: false
+      isShowUser: false,
+      isShowLogoin:false,
     }
   }
   handClickf(idx) {
@@ -24,8 +26,21 @@ export default class Body extends Component {
     this.setState({isShowVideoList: false});
     idx == 0?this.setState({isShowHome: true}):null;
     idx == 1?this.setState({isShowHot: true}):null;
-    idx == 2?this.setState({isShowUser: true}):null;
-    idx == 3?this.setState({isShowVideoList: true}):null;
+    idx == 2?this.setState({isShowVideoList: true}):null;
+    idx == 3?(this.checkUser()):null;
+  }
+  checkUser(){
+    let username=sessionStorage.getItem('username')
+    console.log(username)
+    if(username==null){
+      this.setState({isShowUser: false});
+      this.setState({isShowLogoin: true});
+    }else{
+
+    }
+  }
+  componentDidMount(){
+
   }
   render() {
     const {isShowHome, isShowHot, isShowUser, isShowVideoList} = this.state;
@@ -33,8 +48,8 @@ export default class Body extends Component {
       <Header choose={(idx) => this.handClickf(idx)}/>
       {isShowHome? (<Home/>): null}
       {isShowHot? (<Hot/>): null}
-      {isShowVideoList? (<User/>): null}
-      {isShowUser? (<VideoList/>): null}
+      {isShowVideoList? (<VideoList/>): null}
+      {isShowUser? (<User/>): (<Logoin/>)}
       <Footer/>
     </div>);
   };

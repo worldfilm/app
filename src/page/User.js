@@ -2,6 +2,15 @@ import React, {Component,PropTypes} from 'react';
 import {Link } from 'react-router';
 import './scss/User.scss';
 export default class User extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isShowHome: true,
+      isShowHot: false,
+      isShowVideoList: false,
+      isShowUser: false
+    }
+  }
   render() {
     return (<div className = "User">
                 <ul>

@@ -1,8 +1,8 @@
 import React, {Component,PropTypes} from 'react';
 import {Link } from 'react-router';
 import '../components/scss/Footer.scss';
-import AppFooter from './AD/AppFooter.js'
-
+// import AppFooter from './AD/AppFooter.js'
+import {network} from '../config/config.js'
 const List = [
   {
     name:'isShowHome',
@@ -33,16 +33,35 @@ export default class Footer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        ADlist:'',
+        ADlist:[],
     }
   }
+  getAd(){
+    network('/api/advert/list?cate_code=AppFooter',null, res => {
+      if (res.status == 0) {
+         let data=res.data
+     for(var item in data){
+       // console.log(data[item])
+       this.setState({ADlist: data[item]})
+     }
+      }
+    })
+  }
   componentDidMount(){
+     this.getAd()
+     // console.log(this)
   }
   render() {
-    const {ADlist} = this.state;
+    let  ADlist= this.state.ADlist;
+    let randerHtml = [];
+     console.log(ADlist)
     return (
       <div className='Footer'>
-        <AppFooter/>
+        <div className="AppFooter">
+        <Link to={ADlist.url} target="_blank">
+          <img src={ADlist.img_url}/>
+        </Link>
+        </div>
         <div className="list">
         {
           List.map((item,index)=>(

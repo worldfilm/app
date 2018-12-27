@@ -1,6 +1,6 @@
 import React, {Component,PropTypes} from 'react';
 import {Link } from 'react-router';
-import {network} from '../config/config.js';
+import {network} from './config/config.js';
 export default class AppFooter extends Component {
   constructor(props) {
     super(props)
@@ -9,11 +9,11 @@ export default class AppFooter extends Component {
     }
   }
   getAd(){
-    // network('/api/advert/list?cate_code=AppFooter',null, res => {
-    //   if (res.status == 0) {
-    //     this.setState({ADlist: res.data})
-    //   }
-    // })
+    network('/api/advert/list?cate_code=AppFooter',null, res => {
+      if (res.status == 0) {
+        this.setState({ADlist: res.data})
+      }
+    })
   }
   componentDidMount(){
      this.getAd()

@@ -58,9 +58,9 @@ export default class Footer extends Component {
     return (
       <div className='Footer'>
         <div className="AppFooter">
-        <Link to={ADlist.url} target="_blank">
+        <a href={ADlist.url} target="_blank">
           <img src={ADlist.img_url}/>
-        </Link>
+        </a>
         </div>
         <div className="list">
         {

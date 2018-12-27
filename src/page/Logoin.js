@@ -9,7 +9,7 @@ export default class Logoin extends Component {
     })
   }
   componentDidMount(){
-     this.test()
+     // this.test()
   }
   render() {
     return (<div className = "Logoin">

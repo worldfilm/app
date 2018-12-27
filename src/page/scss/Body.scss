@@ -1,13 +1,15 @@
 .container{
-
-}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  position: absolute;
+  top: .2rem;
+  bottom: .8rem;
   width: 100%;
+  height: calc(100% - .8rem);
+  font-size: .2rem;
+}
+#Main {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  color: #666;
+  box-sizing: border-box;
 }
 
 * {
@@ -42,8 +44,5 @@ button {
 }
 
 body {
-  background: #f7f7f8;
-  font-size: 14px;
-  color: #333;
   display: block;
 }

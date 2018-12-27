@@ -2,49 +2,25 @@ import React, {Component,PropTypes} from 'react';
 import {Link } from 'react-router';
 import './scss/Header.scss';
 import Navbar from '../components/Navbar.js'
-const LIST_ITEMS = [
-  {
-    name:'isShowHome',
-    title: '首页',
-    className:"fas fa-home"
-  },
-  {
-    name:'isShowHot',
-    title: '热门',
-    className:"fas fa-video"
-  },
-  {
-    name:'isShowVideoList',
-    title: '标签',
-    className:"fas fa-tags"
-  },
-  {
-    name:'isShowUser',
-    title: '用户',
-    className:"far fa-user"
-  },
-]
+const AVlist=[{id: 2, name: "黄金正片", thumb: "http://img.qxlsjw.com/appdev/fengmian/huangjinzhengpian.jpg"},
+         {id: 3, name: "欧美专区", thumb: "http://img.qxlsjw.com/appdev/fengmian/oumei.jpg"},
+         {id: 6, name: "日本无码", thumb: "http://img.qxlsjw.com/appdev/fengmian/boduoyejieyi.jpg"},
+         {id: 13, name: "卡通动漫", thumb: "http://img.qxlsjw.com/appdev/fengmian/dongman.jpg"},
+         {id: 16, name: "中文字幕", thumb: null}]
+const VideoList=[{name: '最新更新',id: 7},{name: '最热视频',id: 9},{name: '自拍偷拍',id: 24}]
+const TagList=[{name: '女优列表',id: 0},{name: 'AV分类',id: 1},{name: '视频分类',id: 2}]
+const CollectList=[{name: '女优',id: '0'},{name: 'AV',id: '1'},{name: '视频',id: '2'}]
 export default class Header extends Component {
   render() {
     const { choose=()=>{}  } = this.props;
     return (<div className = "header">
-               <div className = "container">
-                  <div  className = "top">
-                     <img src='/img/logo.png' />
-                     <input/>
-                     <button><i className ='fas fa-search'></i></button>
-                     <img src='' />
-                  </div>
-                  <div className = "navbar">
-                     <ul>
+                 <ul>
                      {
-                       LIST_ITEMS.map((list, idx) => (
-                         <li key={idx} onClick={()=>choose(idx)}><i className ={list.className} ></i><span>{list.title}</span></li>
+                       AVlist.map((item, idx) => (
+                         <li key={idx} onClick={()=>choose(item.id)}><span>{item.name}</span></li>
                        ))
                      }
-                     </ul>
-                 </div>
-               </div>
+                 </ul>
             </div>);
     };
   }

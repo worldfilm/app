@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
 import Footer from '../components/Footer.js'
 import Header from '../components/Header.js'
-import Home from '../page/Home.js'
+import AV from '../page/AV.js'
 import Hot from '../page/Hot.js'
 import User from '../page/User.js'
 import VideoList from '../page/VideoList.js'
@@ -46,7 +46,7 @@ export default class Body extends Component {
     const {isShowHome, isShowHot, isShowUser, isShowVideoList} = this.state;
     return (<div className="container">
       <Header choose={(idx) => this.handClickf(idx)}/>
-      {isShowHome? (<Home/>): null}
+      {isShowHome? (<AV/>): null}
       {isShowHot? (<Hot/>): null}
       {isShowVideoList? (<VideoList/>): null}
       {isShowUser? (<User/>): (<Logoin/>)}

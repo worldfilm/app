@@ -5,28 +5,28 @@ import '../components/scss/Footer.scss';
 import {network} from '../config/config.js'
 const List = [
   {
-    name:'isShowHome',
+    name:'isShowAV',
     title: 'AV',
-    className:"fas fa-home"
+    className:"icon iconfont icon-shipin"
   },
   {
-    name:'isShowHot',
+    name:'isShowVideo',
     title: '视频',
-    className:"fas fa-video"
+    className:"icon iconfont icon-shipin1"
   },
   {
-    name:'isShowVideoList',
+    name:'isShowList',
     title: '分类',
-    className:"fas fa-tags"
+    className:"icon iconfont icon-fenlei"
   },
   {
-    name:'isShowUser',
+    name:'isShowFavor',
     title: '收藏',
-    className:"far fa-user"
+    className:"icon iconfont icon-shoucang1"
   },{
     name:'isShowUser',
     title: '我的',
-    className:"far fa-user"
+    className:"icon iconfont icon-wode"
   },
 ]
 export default class Footer extends Component {
@@ -49,6 +49,7 @@ export default class Footer extends Component {
   }
   render() {
     let  ADlist= this.state.ADlist;
+    const { choose=()=>{}  } = this.props;
     return (
       <div className='Footer'>
         <div className="AppFooter">
@@ -61,14 +62,16 @@ export default class Footer extends Component {
         }
         </div>
         <div className="list">
-        {
-          List.map((item,index)=>(
-            <a className="" key={index}>
-              <i className={item.className}></i>
-              <span>{item.title}</span>
-            </a>
-          ))
-        }
+          <ul>
+            {
+              List.map((item,index)=>(
+                <li className="" key={index} onClick={()=>choose(index)}>
+                  <i className={item.className}></i>
+                  <span>{item.title}</span>
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </div>
       );

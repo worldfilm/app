@@ -56,6 +56,5 @@ export default class VideoList extends Component {
             }
         </ul>
       </div>
-    )
-    };
+    )}
   }

@@ -38,29 +38,27 @@ export default class Footer extends Component {
   }
   getAd(){
     network('/api/advert/list?cate_code=AppFooter',null, res => {
-      if (res.status == 0) {
+       if (res.status == 0) {
          let data=res.data
-     for(var item in data){
-       // console.log(data[item])
-       this.setState({ADlist: data[item]})
-     }
+         this.setState({ADlist: data})
       }
     })
   }
   componentDidMount(){
      this.getAd()
-     // console.log(this)
   }
   render() {
     let  ADlist= this.state.ADlist;
-    let randerHtml = [];
-     console.log(ADlist)
     return (
       <div className='Footer'>
         <div className="AppFooter">
-        <a href={ADlist.url} target="_blank">
-          <img src={ADlist.img_url}/>
-        </a>
+        {
+          ADlist.map((item,index)=>(
+            <a href={item.url} target="_blank" key={index}>
+              <img src={item.img_url}/>
+            </a>
+          ))
+        }
         </div>
         <div className="list">
         {

@@ -34,7 +34,6 @@ export default class ActorList extends Component {
  }
   render() {
     const {list}=this.props
-    console.log(network.id)
     return (
       <div className="ActorList">
         <ul>

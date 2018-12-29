@@ -35,7 +35,6 @@ export default class Actor extends Component {
  }
   render() {
     const {list}=this.state
-    console.log(list)
     return (
       <div className='Actor'>
       <SlideActor Search={(name)=>this.Search(name)}/>

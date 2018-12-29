@@ -11,12 +11,10 @@ export default class CategoryList extends Component {
     }
   }
   getList(sendId){
-    console.log(sendId)
     network('/mapi/category/getvediolist?vadioClass='+sendId,null, res => {
        if (res.status == 0) {
          let list=res.data
          this.setState({list:list})
-         // console.log(list)
       }
     })
   }
@@ -25,18 +23,16 @@ export default class CategoryList extends Component {
       this.getList(sendId)
   }
  componentWillReceiveProps(data) {
-      // this.getList(data.sendId)
  }
   render() {
     const {list}=this.state
     const {sendListId=()=>{}}=this.props
-    console.log(list)
     return (
       <div className='CategoryList'>
         <ul>
         {
           list.map((item,index)=>(
-            <li key={index}  onClick={()=>sendListId(item.id)}>
+            <li key={index}  onClick={()=>sendListId(item.id,item.name)}>
               <img src={item.thumb}/>
               <span className="name">{item.name}</span>
             </li>

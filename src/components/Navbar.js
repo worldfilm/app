@@ -8,12 +8,12 @@ export default class Navbar extends Component {
   }
 
   render() {
-    const { choose=()=>{}  } = this.props;
+    const { GoBack=()=>{},name} = this.props;
     return (<div className = "Navbar">
                <ul>
-                   <li><i className ="" ></i><span>用户</span></li>
-                   <li><i className ="" ></i><span>用户</span></li>
-                   <li><i className ="" ></i><span>用户</span></li>
+                   <li className ="left" onClick={()=>GoBack()}><i></i><span>{"<"}</span></li>
+                   <li className ="title"><i></i><span>{name}</span></li>
+                   <li className ="right"><i></i><span></span></li>
                </ul>
            </div>);
     };

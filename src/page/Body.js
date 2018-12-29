@@ -53,7 +53,7 @@ export default class Body extends Component {
     return (<div className="container">
       {isShowAV? (<AV sendId={sendId} videoList={videoList}/>): null}
       {isShowVideo? (<Video sendId={sendId} videoList={videoList}/>): null}
-      {isShowList? (<List/>): null}
+      {isShowList? (<List />): null}
       {isShowFavor? (<Favor/>): null}
       {isShowUser? (<User/>): (<Logoin/>)}
       <Footer footNavClick={(footerIndex) => this.footNavClick(footerIndex)}/>

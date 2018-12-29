@@ -11,11 +11,9 @@ export default class Navbar extends Component {
     const { choose=()=>{}  } = this.props;
     return (<div className = "Navbar">
                <ul>
-               {
-                 LIST_ITEMS.map((list, idx) => (
-                   <li key={idx} onClick={()=>choose(list.name)}><i className ={list.className} ></i><span>用户</span></li>
-                 ))
-               }
+                   <li><i className ="" ></i><span>用户</span></li>
+                   <li><i className ="" ></i><span>用户</span></li>
+                   <li><i className ="" ></i><span>用户</span></li>
                </ul>
            </div>);
     };

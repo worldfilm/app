@@ -6,6 +6,7 @@ import Header from '../components/Header.js'
 import Actor from '../components/Actor.js'
 import CategoryList from '../components/CategoryList.js'
 import MoreVideo from '../components/MoreVideo.js'
+import Navbar from '../components/Navbar.js'
 export default class List extends Component {
   constructor(props) {
     super(props)
@@ -29,7 +30,7 @@ export default class List extends Component {
       const {idx,sendId,listId}=this.state
       return (
         <div className = "List">
-           {listId?null:<Header headClick={(id)=>this.headClick(id)} idx={idx}/>}
+           {listId?<Navbar/>:<Header headClick={(id)=>this.headClick(id)} idx={idx}/>}
            {sendId==0?<Actor/>:null}
            {sendId==1?<CategoryList sendId={sendId} sendListId={(id)=>this.getId(id)}/>:null}
            {sendId==2?<CategoryList sendId={sendId} sendListId={(id)=>this.getId(id)}/>:null}

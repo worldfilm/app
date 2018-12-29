@@ -9,7 +9,7 @@ export default class Navbar extends Component {
 
   render() {
     const { choose=()=>{}  } = this.props;
-    return (<div className = "navbar">
+    return (<div className = "Navbar">
                <ul>
                {
                  LIST_ITEMS.map((list, idx) => (

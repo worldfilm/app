@@ -1,0 +1,32 @@
+.ActorList {margin-top: 0.2rem;
+  ul {
+    li {
+      width: 25%;
+      margin-bottom: 0.2rem;
+      text-align: center;
+      display: inline-block;
+
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+        display: inline-block;
+      }
+
+      .name {
+        font-size: 0.2rem;
+        height: 0.3rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      button {
+        color: #fff;
+        background-color: #fe7a94;
+        border-color: #fe7a94;
+        border-radius: 0.26667rem;
+        padding: 0.16rem 0.30667rem;
+      }
+    }
+  }
+}

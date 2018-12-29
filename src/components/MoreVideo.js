@@ -1,29 +1,26 @@
 import React, {Component,PropTypes} from 'react';
-import { createStore } from 'redux'
-import {network} from '../config/config.js'
 import {Link } from 'react-router';
-import './scss/AV.scss';
+// import './scss/Video.scss';
 import VideoList from '../components/VideoList.js'
-import Header from '../components/Header.js'
-export default class AV extends Component {
+export default class MoreVideo extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      sendId:2,
-      idx:0,
+        idx:1,
+        sendId:7
     }
   }
-
   //头部导航条点击
   headClick(id){
     // console.log(id+"--headC")
     this.setState({sendId:id})
   }
+  componentDidMount(){
+  }
   render() {
-    const {idx,sendId}=this.state
+    const {sendId}=this.props
     return (
-      <div className = "AV">
-        <Header headClick={(id)=>this.headClick(id)} idx={idx}/>
+      <div className = "MoreVideo">
         <VideoList sendId={sendId}/>
       </div>
   )};

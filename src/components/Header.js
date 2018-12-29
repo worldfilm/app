@@ -17,19 +17,23 @@ export default class Header extends Component {
         list:[],
     }
   }
+
+
   render() {
-    const { headeClick=()=>{},idx} = this.props;
-    let list=AVlist
+    const { headClick=()=>{},idx} = this.props;
+
+    let list
+    idx==0?(list=AVlist):null
     idx==1?(list=VideoList):null
     idx==2?(list=TagList):null
     idx==3?(list=CollectList):null
-    idx==4?(list=CollectList):null
+    idx==4?(list=[]):null
     let myWidth=100/list.length+"%"
     return (<div className = "header">
                  <ul>
                      {
                        list.map((item, idx) => (
-                         <li id={item.id} key={idx} onClick={()=>headeClick(item.id)} style={{width:myWidth}}><span>{item.name}</span></li>
+                         <li id={item.id} key={idx} onClick={()=>headClick(item.id)} style={{width:myWidth}}><span>{item.name}</span></li>
                        ))
                      }
                  </ul>

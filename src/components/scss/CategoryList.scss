@@ -1,0 +1,13 @@
+.CategoryList{margin-bottom: 2rem;
+  ul{
+    li{    width: 30%;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    font-size: .3rem;
+    text-align: center;
+    display: inline-block;margin: 0.11rem;
+      img{width:100%;}
+      .name{}
+    }
+  }
+}

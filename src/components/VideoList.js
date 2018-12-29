@@ -6,35 +6,28 @@ export default class VideoList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        videoList:[],
+      videoList:[],
         id:2
     }
   }
   getList(id){
-    // let id=this.state.id
-    console.log(id)
     network('/mapi/category/categorydetail?categoryid='+id+'&page=1&page_size=10',null, res => {
        if (res.status == 0) {
          let data=res.data
          let newlist=data.new
          let hotlist=data.hot
-           this.setState({videoList:newlist})
+         this.setState({videoList:newlist})
       }
     })
   }
   componentWillMount(){
-    const {indexId}=this.props
-    let id=this.state.id
-     this.getList(indexId)
+     this.getList(this.props.sendId)
   }
- componentWillReceiveProps(newProps) {
-       const {sendId}=this.props
-       this.setState({id:sendId})
-       let id=this.state.id
-          this.getList(id)
+ componentWillReceiveProps(data) {
+      this.getList(data.sendId)
  }
   render() {
-    const {videoList,id}=this.state
+    const {videoList}=this.state
     return (
       <div className='VideoList'>
         <ul>

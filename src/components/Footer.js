@@ -49,7 +49,7 @@ export default class Footer extends Component {
   }
   render() {
     let  ADlist= this.state.ADlist;
-    const { choose=()=>{}  } = this.props;
+    const { footNavClick=()=>{}  } = this.props;
     return (
       <div className='Footer'>
         <div className="AppFooter">
@@ -65,7 +65,7 @@ export default class Footer extends Component {
           <ul>
             {
               List.map((item,index)=>(
-                <li className="" key={index} onClick={()=>choose(index)}>
+                <li className="" key={index} onClick={()=>footNavClick(index)}>
                   <i className={item.className}></i>
                   <span>{item.title}</span>
                 </li>

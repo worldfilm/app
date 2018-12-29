@@ -1,4 +1,5 @@
 import axios from 'axios'
+const ip='http://webvideo.6fg645fsd.com'
 const network = function(url, data, fun) {
   let ip='http://webvideo.6fg645fsd.com'
   // let ip='http://192.168.0.106/video_web/public'
@@ -24,5 +25,5 @@ const network = function(url, data, fun) {
   }
 }
 export {
-  network
+  network,ip
 }

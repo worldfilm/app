@@ -7,7 +7,7 @@ export default class Video extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        idx:1,
+        headIndex:1,
         sendId:7
     }
   }
@@ -19,10 +19,10 @@ export default class Video extends Component {
   componentDidMount(){
   }
   render() {
-    const {idx,sendId}=this.state
+    const {headIndex,sendId}=this.state
     return (
       <div className = "Video">
-        <Header headClick={(id)=>this.headClick(id)} idx={idx}/>
+        <Header headClick={(id)=>this.headClick(id)} headIndex={headIndex}/>
         <VideoList sendId={sendId}/>
       </div>
   )};

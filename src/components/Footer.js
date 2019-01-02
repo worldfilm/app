@@ -4,38 +4,20 @@ import '../components/scss/Footer.scss';
 // import AppFooter from './AD/AppFooter.js'
 import {network} from '../config/config.js'
 const List = [
-  {
-    name:'isShowAV',
-    title: 'AV',
-    className:"icon iconfont icon-shipin"
-  },
-  {
-    name:'isShowVideo',
-    title: '视频',
-    className:"icon iconfont icon-shipin1"
-  },
-  {
-    name:'isShowList',
-    title: '分类',
-    className:"icon iconfont icon-fenlei"
-  },
-  {
-    name:'isShowFavor',
-    title: '收藏',
-    className:"icon iconfont icon-shoucang1"
-  },{
-    name:'isShowUser',
-    title: '我的',
-    className:"icon iconfont icon-wode"
-  },
-]
+  {name:'isShowAV',title: 'AV',className:"icon iconfont icon-shipin"},
+  {name:'isShowVideo',title: '视频',className:"icon iconfont icon-shipin1"},
+  {name:'isShowList',title: '分类',className:"icon iconfont icon-fenlei"},
+  {name:'isShowFavor',title: '收藏',className:"icon iconfont icon-shoucang1"},
+  {name:'isShowUser',title: '我的',className:"icon iconfont icon-wode"},]
 export default class Footer extends Component {
   constructor(props) {
     super(props)
     this.state = {
         ADlist:[],
+        idx:0,
     }
   }
+  // 底部广告
   getAd(){
     network('/api/advert/list?cate_code=AppFooter',null, res => {
        if (res.status == 0) {
@@ -65,7 +47,7 @@ export default class Footer extends Component {
           <ul>
             {
               List.map((item,index)=>(
-                <li className="" key={index} onClick={()=>footNavClick(index)}>
+                <li className={this.state.idx==index?"active":""} key={index}  onClick={()=>(footNavClick(index),this.setState({idx: index}))}>
                   <i className={item.className}></i>
                   <span>{item.title}</span>
                 </li>

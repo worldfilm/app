@@ -15,25 +15,25 @@ export default class Header extends Component {
     super(props)
     this.state = {
         list:[],
+        idx:0,
     }
   }
 
 
   render() {
-    const { headClick=()=>{},idx} = this.props;
-
+    const { headClick=()=>{},headIndex} = this.props;
     let list
-    idx==0?(list=AVlist):null
-    idx==1?(list=VideoList):null
-    idx==2?(list=TagList):null
-    idx==3?(list=CollectList):null
-    idx==4?(list=[]):null
+    headIndex==0?(list=AVlist):null
+    headIndex==1?(list=VideoList):null
+    headIndex==2?(list=TagList):null
+    headIndex==3?(list=CollectList):null
+    headIndex==4?(list=[]):null
     let myWidth=100/list.length+"%"
     return (<div className = "header">
                  <ul>
                      {
-                       list.map((item, idx) => (
-                         <li id={item.id} key={idx} onClick={()=>headClick(item.id)} style={{width:myWidth}}><span>{item.name}</span></li>
+                       list.map((item, index) => (
+                         <li className={this.state.idx==index?"active":""} id={item.id} key={index} onClick={()=>(headClick(item.id),this.setState({idx: index}))} style={{width:myWidth}}><span>{item.name}</span></li>
                        ))
                      }
                  </ul>

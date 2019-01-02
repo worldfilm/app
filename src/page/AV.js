@@ -10,7 +10,7 @@ export default class AV extends Component {
     super(props)
     this.state = {
       sendId:2,
-      idx:0,
+      headIndex:0,
     }
   }
 
@@ -20,10 +20,10 @@ export default class AV extends Component {
     this.setState({sendId:id})
   }
   render() {
-    const {idx,sendId}=this.state
+    const {headIndex,sendId}=this.state
     return (
       <div className = "AV">
-        <Header headClick={(id)=>this.headClick(id)} idx={idx}/>
+        <Header headClick={(id)=>this.headClick(id)} headIndex={headIndex}/>
         <VideoList sendId={sendId}/>
       </div>
   )};

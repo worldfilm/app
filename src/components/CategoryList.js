@@ -10,8 +10,9 @@ export default class CategoryList extends Component {
         id:2
     }
   }
-  getList(sendId){
-    network('/mapi/category/getvediolist?vadioClass='+sendId,null, res => {
+  getList(NavbarIndex){
+    // console.log(NavbarIndex)
+    network('/mapi/category/getvediolist?vadioClass='+NavbarIndex,null, res => {
        if (res.status == 0) {
          let list=res.data
          this.setState({list:list})
@@ -19,10 +20,11 @@ export default class CategoryList extends Component {
     })
   }
   componentWillMount(){
-      const {sendId}=this.props
-      this.getList(sendId)
+
   }
  componentWillReceiveProps(data) {
+   const {NavbarIndex}=this.props
+   this.getList(NavbarIndex)
  }
   render() {
     const {list}=this.state
